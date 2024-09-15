@@ -54,6 +54,7 @@ function createGrid(n) {
         });
         eraserIsOn = false;
         eraserToggleBtn.textContent = eraserIsOn ? 'Eraser: ON' : 'Eraser: OFF';
+        eraserToggleBtn.style.color = eraserIsOn ? 'rgb(184, 0, 31)' : 'rgb(1, 1, 1)';
         grid.style.border = gridIsOn ? "1px solid rgb(211, 211, 211)" : "0px";
     }
 }
@@ -61,6 +62,7 @@ function createGrid(n) {
 rainbowToggleBtn.addEventListener('click', () => {
     rainbowIsOn = !rainbowIsOn;
     rainbowToggleBtn.textContent = rainbowIsOn ? 'Rainbow: ON' : 'Rainbow: OFF';
+    rainbowToggleBtn.style.color = rainbowIsOn ? 'rgb(184, 0, 31)' : 'rgb(1,1,1)';
 });
 
 gridSizeSlider.addEventListener('input', (e) => {
@@ -76,11 +78,13 @@ gridToggleBtn.addEventListener('click', () => {
     });
     gridIsOn = !gridIsOn;
     gridToggleBtn.textContent = gridIsOn ? 'Grid: ON' : 'Grid: OFF';
+    gridToggleBtn.style.color = gridIsOn ? 'rgb(184, 0, 31)' : 'rgb(1, 1, 1)';
 });
 
 eraserToggleBtn.addEventListener('click', () => {
     eraserIsOn = !eraserIsOn;
     eraserToggleBtn.textContent = eraserIsOn ? 'Eraser: ON' : 'Eraser: OFF';
+    eraserToggleBtn.style.color = eraserIsOn ? 'rgb(184, 0, 31)' : 'rgb(1, 1, 1)';
 });
 
 resetAllBtn.addEventListener("click", () => {
@@ -90,8 +94,10 @@ resetAllBtn.addEventListener("click", () => {
     });
     eraserIsOn = false;
     eraserToggleBtn.textContent = eraserIsOn ? 'Eraser: ON' : 'Eraser: OFF';
+    eraserToggleBtn.style.color = eraserIsOn ? 'rgb(184, 0, 31)' : 'rgb(1, 1, 1)';
     rainbowIsOn = false;
     rainbowToggleBtn.textContent = rainbowIsOn ? 'Rainbow: ON' : 'Rainbow: OFF';
+    rainbowToggleBtn.style.color = rainbowIsOn ? 'rgb(184, 0, 31)' : 'rgb(1, 1, 1)';
 });
 
 
