@@ -4,4 +4,4 @@ This is an etch-a-sketch spinoff using divs as the pixels that change color base
 
 There is some additional functionality that I would love to add later on as an improvement. The main one being a shading mode where the color opacity increases in increments of 10% each time the user hovers over a pixel (div). This would allow for some more detailed art!
 
-###You can check out the project here: [atif-paatha](https://atif-pathan.github.io/odin-etch-a-sketch/)
+### You can check out the project here: [Div-Vinci](https://atif-pathan.github.io/odin-etch-a-sketch/)
