@@ -5,12 +5,16 @@ const resetAllBtn = document.querySelector("#resetAll");
 const eraserToggleBtn = document.querySelector("#eraser");
 const gridToggleBtn = document.querySelector("#showGrid");
 const rainbowToggleBtn = document.querySelector("#rainbowMode");
-const shadingToggleBtn = document.querySelector("#shadeMode");
+// const shadingToggleBtn = document.querySelector("#shadeMode");
+const colorPicked = document.querySelector("#colorPicker");
 
 let eraserIsOn = false;
 let gridIsOn = true;
+gridToggleBtn.style.color = gridIsOn ? 'rgb(184, 0, 31)' : 'rgb(1, 1, 1)';
 let mousePressed = false;
 let rainbowIsOn = false;
+let currentColor = "rgba(1, 1, 1, 0.99)";
+// let shadeIsOn = false;
 
 container.addEventListener("mousedown", (e) => {
     mousePressed = true;
@@ -30,6 +34,35 @@ function getRandomRGB() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
+// function rgbToRgbA(rgb, a) {
+//     const rgbValues = rgb.match(/\d+/g);
+//     a = Math.max(0, Math.min(1, a)); // Clamp alpha value between 0 and 1
+//     const rgba = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, ${a})`;
+//     return rgba;
+// }
+
+// function extractRgbAndAlpha(rgba) {
+//     const rgbaValues = rgba.match(/\d+(\.\d+)?/g);
+
+//     // If the rgbaValues array is not of length 4, it's not a valid rgba input
+//     if (!rgbaValues || rgbaValues.length !== 4) {
+//         console.error('Invalid RGBA input');
+//         return null;
+//     }
+
+//     const rgb = `rgb(${rgbaValues[0]}, ${rgbaValues[1]}, ${rgbaValues[2]})`;
+//     const alpha = parseFloat(rgbaValues[3]);
+
+//     return {rgb, alpha};
+// }
+
+// function incrementOpacity(currentOpacity) {
+//     if (currentOpacity < 1) {
+//         currentOpacity += 0.1;
+//     }
+//     return currentOpacity;
+// }
+
 function createGrid(n) {
     container.innerHTML = "";
     for (let i = 0; i < n*n; i++) {
@@ -48,7 +81,7 @@ function createGrid(n) {
                     grid.style.backgroundColor = getRandomRGB();
                 }
                 else {
-                    grid.style.backgroundColor = "black";
+                    grid.style.backgroundColor = currentColor;
                 }
             }
         });
@@ -58,6 +91,12 @@ function createGrid(n) {
         grid.style.border = gridIsOn ? "1px solid rgb(211, 211, 211)" : "0px";
     }
 }
+
+// shadingToggleBtn.addEventListener('click', () => {
+//     shadeIsOn = !shadeIsOn;
+//     shadingToggleBtn.textContent = shadeIsOn ? 'Shading: ON' : 'Shading: OFF';
+//     shadingToggleBtn.style.color = shadeIsOn ? 'rgb(184, 0, 31)' : 'rgb(1,1,1)';
+// })
 
 rainbowToggleBtn.addEventListener('click', () => {
     rainbowIsOn = !rainbowIsOn;
@@ -70,6 +109,10 @@ gridSizeSlider.addEventListener('input', (e) => {
     createGrid(parseInt(newSize));
     gridSizeValue.textContent = `${newSize} x ${newSize}`;
 });
+
+colorPicked.addEventListener('input', (e) => {
+    currentColor = e.target.value;
+})
 
 gridToggleBtn.addEventListener('click', () => {
     const allGridItems = document.querySelectorAll(".grid-item");
